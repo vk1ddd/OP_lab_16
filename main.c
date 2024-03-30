@@ -2,12 +2,12 @@
 #include <assert.h>
 #include "libs/algorithms/lab_tasks.h"
 
-void swap_max_min_row_element_test1(){
+void swap_max_min_row_element_test1() {
     matrix m = getMemMatrix(3, 3);
 
     int num = 20;
-    for (int row = 0; row < m.nRows; row++){
-        for (int col = 0; col < m.nCols; col++){
+    for (int row = 0; row < m.nRows; row++) {
+        for (int col = 0; col < m.nCols; col++) {
             m.values[row][col] = num;
             num--;
         }
@@ -22,17 +22,17 @@ void swap_max_min_row_element_test1(){
     freeMemMatrix(&m);
 }
 
-void swap_max_min_row_element_test2(){
+void swap_max_min_row_element_test2() {
     matrix m = getMemMatrix(5, 9);
 
     int num = 100;
-    for (int row = 0; row < m.nRows; row++){
+    for (int row = 0; row < m.nRows; row++) {
         for (int col = 0; col < m.nCols; col++) {
-            if(row == 1 && col == 2){
+            if (row == 1 && col == 2) {
                 m.values[row][col] = 1;
-            }else if (row == 4 && col == 6){
+            } else if (row == 4 && col == 6) {
                 m.values[row][col] = 999;
-            }else{
+            } else {
                 m.values[row][col] = num;
                 num--;
             }
@@ -46,13 +46,69 @@ void swap_max_min_row_element_test2(){
     freeMemMatrix(&m);
 }
 
-void swap_max_min_row_element_test(){
+void swap_max_min_row_element_test() {
     swap_max_min_row_element_test1();
     swap_max_min_row_element_test2();
 }
 
-void test(){
+void sortRowsByMinElement_test1() {
+    matrix m = getMemMatrix(3, 3);
+
+    int num = 1;
+    for (int row = 0; row < m.nRows; row++) {
+        for (int col = 0; col < m.nCols; col++) {
+            if (row == 0 && col == 0) {
+                m.values[row][col] = 7;
+            } else if (row == 1 && col == 1) {
+                m.values[row][col] = 8;
+            } else if (row == 2 && col == 0) {
+                m.values[row][col] = 3;
+            } else {
+                m.values[row][col] = num;
+            }
+        }
+    }
+
+    sortRowsByMinElement(m);
+
+    assert(m.values[0][0] == 3 && m.values[1][0] == 7 && m.values[2][1] == 8);
+
+    freeMemMatrix(&m);
+}
+
+void sortRowsByMinElement_test2() {
+    matrix m = getMemMatrix(3, 3);
+
+    int num = 1;
+    for (int row = 0; row < m.nRows; row++) {
+        for (int col = 0; col < m.nCols; col++) {
+            if (row == 0 && col == 0) {
+                m.values[row][col] = 3;
+            } else if (row == 1 && col == 1) {
+                m.values[row][col] = 8;
+            } else if (row == 2 && col == 0) {
+                m.values[row][col] = 5;
+            } else {
+                m.values[row][col] = num;
+            }
+        }
+    }
+
+    sortRowsByMinElement(m);
+
+    assert(m.values[0][0] == 3 && m.values[1][0] == 5 && m.values[2][1] == 8);
+
+    freeMemMatrix(&m);
+}
+
+void sortRowsByMinElement_test() {
+    sortRowsByMinElement_test1();
+    sortRowsByMinElement_test2();
+}
+
+void test() {
     swap_max_min_row_element_test();
+    sortRowsByMinElement_test();
 }
 
 int main() {

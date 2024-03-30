@@ -32,3 +32,19 @@ void swap_max_min_row_element(matrix *m){
         swapRows(*m, index_max, index_min);
     }
 }
+
+//task 2
+int  getMax(int  *a,  int  n){
+    int max_num = a[0];
+
+    for (int i = 0; i < n; i++){
+        if(a[i] > max_num)
+            max_num = a[i];
+    }
+
+    return max_num;
+}
+
+void sortRowsByMinElement(matrix  m){
+    insertionSortRowsMatrixByRowCriteria(m, getMax);
+}

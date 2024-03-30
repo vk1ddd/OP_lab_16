@@ -10,4 +10,11 @@
 // меняет местами строки с максимальным и минимальным элементом
 void swap_max_min_row_element(matrix *m);
 
+//task 2
+//возвращает максимальный элемент массива
+int  getMax(int  *a,  int  n);
+
+//упорядочивает строки матрицы по неубыванию наибольших элементов строк
+void sortRowsByMinElement(matrix  m);
+
 #endif //LAB_16_LAB_TASKS_H
