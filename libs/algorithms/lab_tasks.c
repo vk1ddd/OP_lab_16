@@ -64,3 +64,30 @@ int getMin(int *a, int n){
 void sortColsByMinElement(matrix m){
     selectionSortColsMatrixByColCriteria(m, getMin);
 }
+
+//task 4
+matrix  mulMatrices(matrix  m1,  matrix  m2){
+    assert(m1.nCols == m2.nRows);
+
+    matrix result = getMemMatrix(m2.nRows, m1.nCols);
+    for (int row = 0; row < m1.nRows; row++)
+        for (int col = 0; col < m2.nCols; col++) {
+            result.values[row][col] = 0;
+            for (int k = 0; k < m1.nCols; k++)
+                result.values[row][col] += m1.values[row][k] * m2.values[k][col];
+        }
+
+    return result;
+}
+
+void  getSquareOfMatrixIfSymmetric(matrix  *m){
+    assert(isSymmetricMatrix(m));
+
+    matrix result = mulMatrices(*m, *m);
+
+    freeMemMatrix(m);
+
+    m->values = result.values;
+    m->nRows = result.nRows;
+    m->nCols = result.nCols;
+}

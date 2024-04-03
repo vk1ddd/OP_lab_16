@@ -25,4 +25,11 @@ int getMin(int *a, int n);
 //упорядочивает столбцы матрицы по неубыванию минимальных элементов столбцов
 void sortColsByMinElement(matrix m);
 
+//task 4
+//умножает матрицы друг на друга
+matrix  mulMatrices(matrix  m1,  matrix  m2);
+
+//если матрица симметрична, то заменяет ее квадратом этой матрицы
+void  getSquareOfMatrixIfSymmetric(matrix  *m);
+
 #endif //LAB_16_LAB_TASKS_H
