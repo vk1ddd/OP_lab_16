@@ -42,4 +42,8 @@ long long getSum(int *a, int n);
 // транспонирует матрицу если суммы строк различны
 void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
+//task 6
+//возвращает истинна если матрицы явл. взаимно обратными
+bool  isMutuallyInverseMatrices(matrix  m1,  matrix  m2);
+
 #endif //LAB_16_LAB_TASKS_H

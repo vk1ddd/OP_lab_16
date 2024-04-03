@@ -120,3 +120,15 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m){
     if (isUnique(sum, m.nRows))
         transposeSquareMatrix(&m);
 }
+
+
+//task 6
+bool  isMutuallyInverseMatrices(matrix  m1,  matrix  m2){
+    matrix multi = mulMatrices(m1, m2);
+
+    bool result = isEMatrix(&multi);
+
+    freeMemMatrix(&multi);
+
+    return result;
+}

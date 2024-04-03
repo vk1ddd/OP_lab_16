@@ -214,12 +214,46 @@ void transposeIfMatrixHasNotEqualSumOfRows_test(){
     transposeIfMatrixHasNotEqualSumOfRows_test2();
 }
 
+void isMutuallyInverseMatrices_test1(){
+    matrix m1 = createMatrixFromArray((int[]) {3, -5,
+                                                  1, -2}, 2, 2);
+
+    matrix m2 = createMatrixFromArray((int[]) {2, -5,
+                                                  1, -3}, 2, 2);
+
+    assert(isMutuallyInverseMatrices(m1, m2) == 1);
+
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+}
+
+void isMutuallyInverseMatrices_test2(){
+    matrix m1 = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 0, 1, 4,
+                                                 5, 6, 0}, 3, 3);
+
+    matrix m2 = createMatrixFromArray((int[]) {-24, 18, 5,
+                                                    20, -15, -4,
+                                                    -5, 4, 1}, 3, 3);
+
+    assert(isMutuallyInverseMatrices(m1, m2) == 1);
+
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+}
+
+void isMutuallyInverseMatrices_test(){
+    isMutuallyInverseMatrices_test1();
+    isMutuallyInverseMatrices_test2();
+}
+
 void test() {
     swap_max_min_row_element_test();
     sortRowsByMinElement_test();
     sortColsByMinElement_test();
     getSquareOfMatrixIfSymmetric_test();
     transposeIfMatrixHasNotEqualSumOfRows_test();
+    isMutuallyInverseMatrices_test();
 }
 
 int main() {
