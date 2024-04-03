@@ -44,6 +44,13 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
 //task 6
 //возвращает истинна если матрицы явл. взаимно обратными
-bool  isMutuallyInverseMatrices(matrix  m1,  matrix  m2);
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+
+//task 7
+//из a и b выбирает максимальный и возвращает его
+int max(int a, int b);
+
+//находит сумму максимальных элементов псевдодиагонали
+long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
 #endif //LAB_16_LAB_TASKS_H

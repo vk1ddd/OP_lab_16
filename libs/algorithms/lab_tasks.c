@@ -102,7 +102,7 @@ bool isUnique(long long *a, int n) {
     return true;
 }
 
-long long getSum(int *a, int n){
+long long getSum(int *a, int n) {
     long long int result = 0;
 
     for (int i = 0; i < n; i++)
@@ -111,7 +111,7 @@ long long getSum(int *a, int n){
     return result;
 }
 
-void transposeIfMatrixHasNotEqualSumOfRows(matrix m){
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m) {
     long long int sum[m.nRows];
 
     for (int i = 0; i < m.nRows; i++)
@@ -123,12 +123,38 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m){
 
 
 //task 6
-bool  isMutuallyInverseMatrices(matrix  m1,  matrix  m2){
+bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
     matrix multi = mulMatrices(m1, m2);
 
     bool result = isEMatrix(&multi);
 
     freeMemMatrix(&multi);
+
+    return result;
+}
+
+// task 7
+int max(int a, int b) {
+    if (a > b)
+        return a;
+
+    return b;
+}
+
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+    int max_elements[m.nCols + m.nRows - 1];
+    for (int row = 0; row < m.nRows; row++) {
+        for (int col = 0; col < m.nCols; col++) {
+            if (row != col)
+                max_elements[row - col + m.nCols - 1] = max(max_elements[row - col + m.nCols - 1],
+                                                            m.values[row][col]);
+        }
+    }
+
+    long long result = 0;
+    for (int i = 0; i < (m.nCols + m.nRows - 1); i++) {
+        result += max_elements[i];
+    }
 
     return result;
 }

@@ -175,14 +175,14 @@ void getSquareOfMatrixIfSymmetric_test() {
     getSquareOfMatrixIfSymmetric_test2();
 }
 
-void transposeIfMatrixHasNotEqualSumOfRows_test1(){
+void transposeIfMatrixHasNotEqualSumOfRows_test1() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3,
-                                                 4, 5, 6,
-                                                 7, 8, 9}, 3, 3);
+                                              4, 5, 6,
+                                              7, 8, 9}, 3, 3);
 
     matrix check = createMatrixFromArray((int[]) {1, 4, 7,
-                                                     2, 5, 8,
-                                                     3, 6, 9}, 3, 3);
+                                                  2, 5, 8,
+                                                  3, 6, 9}, 3, 3);
 
     transposeIfMatrixHasNotEqualSumOfRows(m);
 
@@ -192,7 +192,7 @@ void transposeIfMatrixHasNotEqualSumOfRows_test1(){
     freeMemMatrix(&check);
 }
 
-void transposeIfMatrixHasNotEqualSumOfRows_test2(){
+void transposeIfMatrixHasNotEqualSumOfRows_test2() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3,
                                               1, 2, 3,
                                               1, 2, 3,}, 3, 3);
@@ -209,17 +209,17 @@ void transposeIfMatrixHasNotEqualSumOfRows_test2(){
     freeMemMatrix(&check);
 }
 
-void transposeIfMatrixHasNotEqualSumOfRows_test(){
+void transposeIfMatrixHasNotEqualSumOfRows_test() {
     transposeIfMatrixHasNotEqualSumOfRows_test1();
     transposeIfMatrixHasNotEqualSumOfRows_test2();
 }
 
-void isMutuallyInverseMatrices_test1(){
+void isMutuallyInverseMatrices_test1() {
     matrix m1 = createMatrixFromArray((int[]) {3, -5,
-                                                  1, -2}, 2, 2);
+                                               1, -2}, 2, 2);
 
     matrix m2 = createMatrixFromArray((int[]) {2, -5,
-                                                  1, -3}, 2, 2);
+                                               1, -3}, 2, 2);
 
     assert(isMutuallyInverseMatrices(m1, m2) == 1);
 
@@ -227,14 +227,14 @@ void isMutuallyInverseMatrices_test1(){
     freeMemMatrix(&m2);
 }
 
-void isMutuallyInverseMatrices_test2(){
+void isMutuallyInverseMatrices_test2() {
     matrix m1 = createMatrixFromArray((int[]) {1, 2, 3,
-                                                 0, 1, 4,
-                                                 5, 6, 0}, 3, 3);
+                                               0, 1, 4,
+                                               5, 6, 0}, 3, 3);
 
     matrix m2 = createMatrixFromArray((int[]) {-24, 18, 5,
-                                                    20, -15, -4,
-                                                    -5, 4, 1}, 3, 3);
+                                               20, -15, -4,
+                                               -5, 4, 1}, 3, 3);
 
     assert(isMutuallyInverseMatrices(m1, m2) == 1);
 
@@ -242,9 +242,38 @@ void isMutuallyInverseMatrices_test2(){
     freeMemMatrix(&m2);
 }
 
-void isMutuallyInverseMatrices_test(){
+void isMutuallyInverseMatrices_test() {
     isMutuallyInverseMatrices_test1();
     isMutuallyInverseMatrices_test2();
+}
+
+void findSumOfMaxesOfPseudoDiagonal_test1(){
+    matrix m = createMatrixFromArray((int[]){3, 2, 5 ,4,
+                                             1, 3, 6 ,3,
+                                             3, 2, 1, 2}, 3, 4);
+
+    long long check = findSumOfMaxesOfPseudoDiagonal(m);
+
+    assert(check == 20);
+
+    freeMemMatrix(&m);
+}
+
+void findSumOfMaxesOfPseudoDiagonal_test2(){
+    matrix m = createMatrixFromArray((int[]){3, 5, 2, 4, 3, 3,
+                                             2, 5, 1, 8, 2, 7,
+                                             6, 1, 4, 4, 8, 3}, 3, 6);
+
+    long long check = findSumOfMaxesOfPseudoDiagonal(m);
+
+    assert(check == 35);
+
+    freeMemMatrix(&m);
+}
+
+void findSumOfMaxesOfPseudoDiagonal_test(){
+    findSumOfMaxesOfPseudoDiagonal_test1();
+    findSumOfMaxesOfPseudoDiagonal_test2();
 }
 
 void test() {
