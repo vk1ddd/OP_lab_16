@@ -4,6 +4,7 @@
 
 #ifndef LAB_16_LAB_TASKS_H
 #define LAB_16_LAB_TASKS_H
+
 #include "../data_structures/matrix/matrix.h"
 
 //task 1
@@ -12,9 +13,16 @@ void swap_max_min_row_element(matrix *m);
 
 //task 2
 //возвращает максимальный элемент массива
-int  getMax(int  *a,  int  n);
+int getMax(int *a, int n);
 
 //упорядочивает строки матрицы по неубыванию наибольших элементов строк
-void sortRowsByMinElement(matrix  m);
+void sortRowsByMinElement(matrix m);
+
+//task 3
+//выводит минимальный элемент матрицы
+int getMin(int *a, int n);
+
+//упорядочивает столбцы матрицы по неубыванию минимальных элементов столбцов
+void sortColsByMinElement(matrix m);
 
 #endif //LAB_16_LAB_TASKS_H

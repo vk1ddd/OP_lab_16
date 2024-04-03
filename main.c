@@ -106,9 +106,40 @@ void sortRowsByMinElement_test() {
     sortRowsByMinElement_test2();
 }
 
+void sortColsByMinElement_test1(){
+    matrix m = createMatrixFromArray((int[]){3, 5, 2, 4, 3, 3,
+                                                2, 5, 1, 8, 2, 7,
+                                                6, 1, 4, 4, 8, 3}, 3, 6);
+
+    sortColsByMinElement(m);
+
+    assert(m.values[2][0] == 1 && m.values[1][1] == 1 && m.values[1][2] == 2
+            && m.values[1][3] == 2 && m.values[0][4] == 3 && m.values[0][5] == 4);
+
+    freeMemMatrix(&m);
+}
+
+void sortColsByMinElement_test2(){
+    matrix m = createMatrixFromArray((int[]){2, 0, 4, 1,
+                                                3, 2, 4, 2,
+                                                2, 2, 4, 2,}, 3, 4);
+
+    sortColsByMinElement(m);
+
+    assert(m.values[0][0] == 0 && m.values[0][1] == 1 && m.values[1][2] == 3 && m.values[1][3] == 4);
+
+    freeMemMatrix(&m);
+}
+
+void sortColsByMinElement_test(){
+    sortColsByMinElement_test1();
+    sortColsByMinElement_test2();
+}
+
 void test() {
     swap_max_min_row_element_test();
     sortRowsByMinElement_test();
+    sortColsByMinElement_test();
 }
 
 int main() {
