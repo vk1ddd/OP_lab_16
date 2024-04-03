@@ -106,23 +106,23 @@ void sortRowsByMinElement_test() {
     sortRowsByMinElement_test2();
 }
 
-void sortColsByMinElement_test1(){
-    matrix m = createMatrixFromArray((int[]){3, 5, 2, 4, 3, 3,
-                                                2, 5, 1, 8, 2, 7,
-                                                6, 1, 4, 4, 8, 3}, 3, 6);
+void sortColsByMinElement_test1() {
+    matrix m = createMatrixFromArray((int[]) {3, 5, 2, 4, 3, 3,
+                                              2, 5, 1, 8, 2, 7,
+                                              6, 1, 4, 4, 8, 3}, 3, 6);
 
     sortColsByMinElement(m);
 
     assert(m.values[2][0] == 1 && m.values[1][1] == 1 && m.values[1][2] == 2
-            && m.values[1][3] == 2 && m.values[0][4] == 3 && m.values[0][5] == 4);
+           && m.values[1][3] == 2 && m.values[0][4] == 3 && m.values[0][5] == 4);
 
     freeMemMatrix(&m);
 }
 
-void sortColsByMinElement_test2(){
-    matrix m = createMatrixFromArray((int[]){2, 0, 4, 1,
-                                                3, 2, 4, 2,
-                                                2, 2, 4, 2,}, 3, 4);
+void sortColsByMinElement_test2() {
+    matrix m = createMatrixFromArray((int[]) {2, 0, 4, 1,
+                                              3, 2, 4, 2,
+                                              2, 2, 4, 2,}, 3, 4);
 
     sortColsByMinElement(m);
 
@@ -131,19 +131,19 @@ void sortColsByMinElement_test2(){
     freeMemMatrix(&m);
 }
 
-void sortColsByMinElement_test(){
+void sortColsByMinElement_test() {
     sortColsByMinElement_test1();
     sortColsByMinElement_test2();
 }
 
-void getSquareOfMatrixIfSymmetric_test1(){
+void getSquareOfMatrixIfSymmetric_test1() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3,
-                                                 2, 5, 6,
-                                                 3, 6, 9}, 3, 3);
+                                              2, 5, 6,
+                                              3, 6, 9}, 3, 3);
 
     matrix check = createMatrixFromArray((int[]) {14, 30, 42,
-                                                     30, 65, 90,
-                                                     42, 90, 126}, 3, 3);
+                                                  30, 65, 90,
+                                                  42, 90, 126}, 3, 3);
 
     getSquareOfMatrixIfSymmetric(&m);
 
@@ -153,14 +153,14 @@ void getSquareOfMatrixIfSymmetric_test1(){
     freeMemMatrix(&check);
 }
 
-void getSquareOfMatrixIfSymmetric_test2(){
+void getSquareOfMatrixIfSymmetric_test2() {
     matrix m = createMatrixFromArray((int[]) {1, 0, 0,
-                                                0, 1, 0,
-                                                0, 0, 1}, 3, 3);
+                                              0, 1, 0,
+                                              0, 0, 1}, 3, 3);
 
     matrix check = createMatrixFromArray((int[]) {1, 0, 0,
-                                                    0, 1, 0,
-                                                    0, 0, 1}, 3, 3);
+                                                  0, 1, 0,
+                                                  0, 0, 1}, 3, 3);
 
     getSquareOfMatrixIfSymmetric(&m);
 
@@ -170,9 +170,48 @@ void getSquareOfMatrixIfSymmetric_test2(){
     freeMemMatrix(&check);
 }
 
-void getSquareOfMatrixIfSymmetric_test(){
+void getSquareOfMatrixIfSymmetric_test() {
     getSquareOfMatrixIfSymmetric_test1();
-   getSquareOfMatrixIfSymmetric_test2();
+    getSquareOfMatrixIfSymmetric_test2();
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows_test1(){
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 4, 5, 6,
+                                                 7, 8, 9}, 3, 3);
+
+    matrix check = createMatrixFromArray((int[]) {1, 4, 7,
+                                                     2, 5, 8,
+                                                     3, 6, 9}, 3, 3);
+
+    transposeIfMatrixHasNotEqualSumOfRows(m);
+
+    assert(areTwoMatricesEqual(&m, &check));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&check);
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows_test2(){
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              1, 2, 3,
+                                              1, 2, 3,}, 3, 3);
+
+    matrix check = createMatrixFromArray((int[]) {1, 2, 3,
+                                                  1, 2, 3,
+                                                  1, 2, 3,}, 3, 3);
+
+    transposeIfMatrixHasNotEqualSumOfRows(m);
+
+    assert(areTwoMatricesEqual(&m, &check));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&check);
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows_test(){
+    transposeIfMatrixHasNotEqualSumOfRows_test1();
+    transposeIfMatrixHasNotEqualSumOfRows_test2();
 }
 
 void test() {
@@ -180,6 +219,7 @@ void test() {
     sortRowsByMinElement_test();
     sortColsByMinElement_test();
     getSquareOfMatrixIfSymmetric_test();
+    transposeIfMatrixHasNotEqualSumOfRows_test();
 }
 
 int main() {

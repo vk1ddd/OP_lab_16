@@ -50,7 +50,7 @@ void sortRowsByMinElement(matrix m) {
 }
 
 //task 3
-int getMin(int *a, int n){
+int getMin(int *a, int n) {
     int min_num = a[0];
 
     for (int i = 0; i < n; i++) {
@@ -61,12 +61,12 @@ int getMin(int *a, int n){
     return min_num;
 }
 
-void sortColsByMinElement(matrix m){
+void sortColsByMinElement(matrix m) {
     selectionSortColsMatrixByColCriteria(m, getMin);
 }
 
 //task 4
-matrix  mulMatrices(matrix  m1,  matrix  m2){
+matrix mulMatrices(matrix m1, matrix m2) {
     assert(m1.nCols == m2.nRows);
 
     matrix result = getMemMatrix(m2.nRows, m1.nCols);
@@ -80,7 +80,7 @@ matrix  mulMatrices(matrix  m1,  matrix  m2){
     return result;
 }
 
-void  getSquareOfMatrixIfSymmetric(matrix  *m){
+void getSquareOfMatrixIfSymmetric(matrix *m) {
     assert(isSymmetricMatrix(m));
 
     matrix result = mulMatrices(*m, *m);
@@ -90,4 +90,33 @@ void  getSquareOfMatrixIfSymmetric(matrix  *m){
     m->values = result.values;
     m->nRows = result.nRows;
     m->nCols = result.nCols;
+}
+
+//task 5
+bool isUnique(long long *a, int n) {
+    for (int i = 0; i < n; i++)
+        for (int j = i + 1; j < n; j++)
+            if (a[i] == a[j])
+                return false;
+
+    return true;
+}
+
+long long getSum(int *a, int n){
+    long long int result = 0;
+
+    for (int i = 0; i < n; i++)
+        result += a[i];
+
+    return result;
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m){
+    long long int sum[m.nRows];
+
+    for (int i = 0; i < m.nRows; i++)
+        sum[i] = getSum(m.values[i], m.nCols);
+
+    if (isUnique(sum, m.nRows))
+        transposeSquareMatrix(&m);
 }

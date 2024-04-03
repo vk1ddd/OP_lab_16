@@ -27,9 +27,19 @@ void sortColsByMinElement(matrix m);
 
 //task 4
 //умножает матрицы друг на друга
-matrix  mulMatrices(matrix  m1,  matrix  m2);
+matrix mulMatrices(matrix m1, matrix m2);
 
 //если матрица симметрична, то заменяет ее квадратом этой матрицы
-void  getSquareOfMatrixIfSymmetric(matrix  *m);
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
+//task 5
+//возвращает истину если в массиве нет одинаковых элементов
+bool isUnique(long long *a, int n);
+
+//возвращает сумму элементов
+long long getSum(int *a, int n);
+
+// транспонирует матрицу если суммы строк различны
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
 #endif //LAB_16_LAB_TASKS_H
