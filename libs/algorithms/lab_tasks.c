@@ -143,6 +143,10 @@ int max(int a, int b) {
 
 long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     int max_elements[m.nCols + m.nRows - 1];
+
+    for (int i = 0;i < (m.nCols + m.nRows - 1); i++)
+        max_elements[i] = 0;
+
     for (int row = 0; row < m.nRows; row++) {
         for (int col = 0; col < m.nCols; col++) {
             if (row != col)
@@ -157,4 +161,22 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     }
 
     return result;
+}
+
+// task 8
+int  getMinInArea(matrix  m){
+    position max = getMaxValuePos(m);
+    int min = m.values[max.rowIndex][max.rowIndex];
+    int range = 0;
+
+    while(max.rowIndex >= 0){
+        for(int col = ((max.colIndex - range) < 0 ? 0 : max.colIndex - range); col < ((max.colIndex + range + 1) > m.nCols ? m.nCols : max.colIndex + range + 1); col++){
+            if (min > m.values[max.rowIndex][col])
+                min = m.values[max.rowIndex][col];
+        }
+        max.rowIndex--;
+        range++;
+    }
+
+    return min;
 }
