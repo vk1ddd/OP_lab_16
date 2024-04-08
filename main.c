@@ -447,6 +447,35 @@ void swapPenultimateRow_test() {
     swapPenultimateRow_test2();
 }
 
+void countZeroRows_test1() {
+    matrix m = createMatrixFromArray((int[]) {0, 0,
+                                              0, 0,
+                                              4, 7}, 3, 2);
+
+    int check = countZeroRows(m);
+
+    assert(check == 2);
+
+    freeMemMatrix(&m);
+}
+
+void countZeroRows_test2() {
+    matrix m = createMatrixFromArray((int[]) {0, 0,
+                                              0, 1,
+                                              0, 0}, 3, 2);
+
+    int check = countZeroRows(m);
+
+    assert(check == 2);
+
+    freeMemMatrix(&m);
+}
+
+void countZeroRows_test() {
+    countZeroRows_test1();
+    countZeroRows_test2();
+}
+
 void test() {
     swap_max_min_row_element_test();
     sortRowsByMinElement_test();
@@ -460,6 +489,7 @@ void test() {
     countEqClassesByRowsSum_test();
     getNSpecialElement_test();
     swapPenultimateRow_test();
+    countZeroRows_test();
 }
 
 int main() {
