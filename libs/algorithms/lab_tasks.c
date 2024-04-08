@@ -7,6 +7,7 @@
 #include <stdbool.h>
 #include <assert.h>
 #include <string.h>
+#include <math.h>
 #include "../data_structures/matrix/matrix.h"
 
 // task 1
@@ -144,7 +145,7 @@ int max(int a, int b) {
 long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     int max_elements[m.nCols + m.nRows - 1];
 
-    for (int i = 0;i < (m.nCols + m.nRows - 1); i++)
+    for (int i = 0; i < (m.nCols + m.nRows - 1); i++)
         max_elements[i] = 0;
 
     for (int row = 0; row < m.nRows; row++) {
@@ -164,13 +165,14 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
 }
 
 // task 8
-int  getMinInArea(matrix  m){
+int getMinInArea(matrix m) {
     position max = getMaxValuePos(m);
     int min = m.values[max.rowIndex][max.rowIndex];
     int range = 0;
 
-    while(max.rowIndex >= 0){
-        for(int col = ((max.colIndex - range) < 0 ? 0 : max.colIndex - range); col < ((max.colIndex + range + 1) > m.nCols ? m.nCols : max.colIndex + range + 1); col++){
+    while (max.rowIndex >= 0) {
+        for (int col = ((max.colIndex - range) < 0 ? 0 : max.colIndex - range);
+             col < ((max.colIndex + range + 1) > m.nCols ? m.nCols : max.colIndex + range + 1); col++) {
             if (min > m.values[max.rowIndex][col])
                 min = m.values[max.rowIndex][col];
         }
@@ -179,4 +181,36 @@ int  getMinInArea(matrix  m){
     }
 
     return min;
+}
+
+//task 9
+float getDistance(int *a, int n) {
+    long long int sum = 0;
+    for (int i = 0; i < n; i++)
+        sum += a[i] * a[i];
+
+    return sqrt(sum);
+}
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
+    float res_criteria[m.nRows];
+
+    for (size_t i = 0; i < m.nRows; i++)
+        res_criteria[i] = criteria(m.values[i], m.nCols);
+
+    float temp;
+    for (int i = 0; i < m.nRows - 1; i++){
+        for (int j = 1; j < m.nRows; j++){
+            if(res_criteria[i] > res_criteria[j]){
+                swapRows(m, i, j);
+                temp = res_criteria[i];
+                res_criteria[i] = res_criteria[j];
+                res_criteria[j] = temp;
+            }
+        }
+    }
+}
+
+void sortByDistances(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }

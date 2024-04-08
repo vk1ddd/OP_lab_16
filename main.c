@@ -247,10 +247,10 @@ void isMutuallyInverseMatrices_test() {
     isMutuallyInverseMatrices_test2();
 }
 
-void findSumOfMaxesOfPseudoDiagonal_test1(){
-    matrix m = createMatrixFromArray((int[]){3, 2, 5 ,4,
-                                             1, 3, 6 ,3,
-                                             3, 2, 1, 2}, 3, 4);
+void findSumOfMaxesOfPseudoDiagonal_test1() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 5, 4,
+                                              1, 3, 6, 3,
+                                              3, 2, 1, 2}, 3, 4);
 
     long long check = findSumOfMaxesOfPseudoDiagonal(m);
 
@@ -259,10 +259,10 @@ void findSumOfMaxesOfPseudoDiagonal_test1(){
     freeMemMatrix(&m);
 }
 
-void findSumOfMaxesOfPseudoDiagonal_test2(){
-    matrix m = createMatrixFromArray((int[]){3, 5, 2, 4, 3, 3,
-                                             2, 5, 1, 8, 2, 7,
-                                             6, 1, 4, 4, 8, 3}, 3, 6);
+void findSumOfMaxesOfPseudoDiagonal_test2() {
+    matrix m = createMatrixFromArray((int[]) {3, 5, 2, 4, 3, 3,
+                                              2, 5, 1, 8, 2, 7,
+                                              6, 1, 4, 4, 8, 3}, 3, 6);
 
     long long check = findSumOfMaxesOfPseudoDiagonal(m);
 
@@ -271,15 +271,15 @@ void findSumOfMaxesOfPseudoDiagonal_test2(){
     freeMemMatrix(&m);
 }
 
-void findSumOfMaxesOfPseudoDiagonal_test(){
+void findSumOfMaxesOfPseudoDiagonal_test() {
     findSumOfMaxesOfPseudoDiagonal_test1();
     findSumOfMaxesOfPseudoDiagonal_test2();
 }
 
-void getMinInArea_test1(){
-    matrix m = createMatrixFromArray((int[]){3, 5, 2, 4, 6, 1,
-                                             32, 45, 15, 8, 10, 7,
-                                             36, 124, 44, 424, 48, 23}, 3, 6);
+void getMinInArea_test1() {
+    matrix m = createMatrixFromArray((int[]) {3, 5, 2, 4, 6, 1,
+                                              32, 45, 15, 8, 10, 7,
+                                              36, 124, 44, 424, 48, 23}, 3, 6);
 
     long long check = getMinInArea(m);
 
@@ -288,10 +288,10 @@ void getMinInArea_test1(){
     freeMemMatrix(&m);
 }
 
-void getMinInArea_test2(){
-    matrix m = createMatrixFromArray((int[]){10, 7, 5, 6,
-                                             3, 11, 8, 9,
-                                             4, 1, 12, 2}, 3, 4);
+void getMinInArea_test2() {
+    matrix m = createMatrixFromArray((int[]) {10, 7, 5, 6,
+                                              3, 11, 8, 9,
+                                              4, 1, 12, 2}, 3, 4);
 
     long long check = getMinInArea(m);
 
@@ -300,10 +300,10 @@ void getMinInArea_test2(){
     freeMemMatrix(&m);
 }
 
-void getMinInArea_test3(){
-    matrix m = createMatrixFromArray((int[]){6, 8, 9, 2,
-                                             7, 12, 3, 4,
-                                             10, 11, 5, 1}, 3, 4);
+void getMinInArea_test3() {
+    matrix m = createMatrixFromArray((int[]) {6, 8, 9, 2,
+                                              7, 12, 3, 4,
+                                              10, 11, 5, 1}, 3, 4);
 
     long long check = getMinInArea(m);
 
@@ -312,10 +312,39 @@ void getMinInArea_test3(){
     freeMemMatrix(&m);
 }
 
-void getMinInArea_test(){
+void getMinInArea_test() {
     getMinInArea_test1();
     getMinInArea_test2();
     getMinInArea_test3();
+}
+
+void sortByDistances_test1(){
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              4, 5, 6,
+                                              -1, 0, 1}, 3, 3);
+
+    sortByDistances(m);
+
+    assert(m.values[0][0] == -1 && m.values[1][0] == 1 && m.values[2][0] == 4);
+
+    freeMemMatrix(&m);
+}
+
+void sortByDistances_test2(){
+    matrix m = createMatrixFromArray((int[]) {2, 1, -3, 4,
+                                              0, 3, 1, -2,
+                                              -1, 2, 2, 0}, 3, 4);
+
+    sortByDistances(m);
+
+    assert(m.values[0][0] == -1 && m.values[1][0] == 0 && m.values[2][0] == 2);
+
+    freeMemMatrix(&m);
+}
+
+void sortByDistances_test(){
+    sortByDistances_test1();
+    sortByDistances_test2();
 }
 
 void test() {
@@ -327,6 +356,7 @@ void test() {
     isMutuallyInverseMatrices_test();
     findSumOfMaxesOfPseudoDiagonal_test();
     getMinInArea_test();
+    sortByDistances_test();
 }
 
 int main() {

@@ -54,7 +54,17 @@ int max(int a, int b);
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
 //task 8
-//int  getMinInArea(matrix  m)
-int  getMinInArea(matrix  m);
+//находит минимальный элемент матрицы в выделенной области
+int getMinInArea(matrix m);
+
+//task 9
+//возвращает расстояние до начала координат
+float getDistance(int *a, int n);
+
+//сортирует строки матрицы m по не убыванию, основываясь на критерии criteria
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int));
+
+// сортирует строки матрицы m, относительно их удалённости от начала координат
+void sortByDistances(matrix m);
 
 #endif //LAB_16_LAB_TASKS_H
