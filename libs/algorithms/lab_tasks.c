@@ -199,9 +199,9 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
         res_criteria[i] = criteria(m.values[i], m.nCols);
 
     float temp;
-    for (int i = 0; i < m.nRows - 1; i++){
-        for (int j = 1; j < m.nRows; j++){
-            if(res_criteria[i] > res_criteria[j]){
+    for (int i = 0; i < m.nRows - 1; i++) {
+        for (int j = 1; j < m.nRows; j++) {
+            if (res_criteria[i] > res_criteria[j]) {
                 swapRows(m, i, j);
                 temp = res_criteria[i];
                 res_criteria[i] = res_criteria[j];
@@ -213,4 +213,33 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
 
 void sortByDistances(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
+}
+
+//task 10
+int cmp_long_long(const void *pa, const void *pb) {
+    return (int) (*(long long int *) pa - *(long long int *) pb);
+}
+
+int countNUnique(long long *a, int n) {
+    int amount = 1;
+
+    for (int i = 0; i < n - 1; i++){
+        if (a[i] != a[i + 1])
+            amount++;
+    }
+
+    return amount;
+}
+
+int countEqClassesByRowsSum(matrix m) {
+    long long int values[m.nRows];
+
+    for (int i = 0; i < m.nRows; i++)
+        values[i] = getSum(m.values[i], m.nCols);
+
+    qsort(values, m.nRows, sizeof(long long int), cmp_long_long);
+
+    int result = countNUnique(values, m.nRows);
+
+    return result;
 }

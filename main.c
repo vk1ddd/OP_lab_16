@@ -347,6 +347,40 @@ void sortByDistances_test(){
     sortByDistances_test2();
 }
 
+void countEqClassesByRowsSum_test1(){
+    matrix m = createMatrixFromArray((int[]) {7, 1,
+                                              2, 7,
+                                              5, 4,
+                                              4, 3,
+                                              1, 6,
+                                              8, 0}, 6, 2);
+
+    int check = countEqClassesByRowsSum(m);
+
+    assert(check == 3);
+
+    freeMemMatrix(&m);
+}
+
+void countEqClassesByRowsSum_test2(){
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 1, 3, 2,
+                                                 2, 1, 3,
+                                                 2, 3, 1}, 4, 3);
+
+
+    int result = countEqClassesByRowsSum(m);
+
+    assert(result == 1);
+
+    freeMemMatrix(&m);
+}
+
+void countEqClassesByRowsSum_test(){
+    countEqClassesByRowsSum_test1();
+    countEqClassesByRowsSum_test2();
+}
+
 void test() {
     swap_max_min_row_element_test();
     sortRowsByMinElement_test();
@@ -357,6 +391,7 @@ void test() {
     findSumOfMaxesOfPseudoDiagonal_test();
     getMinInArea_test();
     sortByDistances_test();
+    countEqClassesByRowsSum_test();
 }
 
 int main() {
