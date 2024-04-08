@@ -293,3 +293,33 @@ void swapPenultimateRow(matrix m) {
         m.values[m.nRows - 2][col] = array[col];
     }
 }
+
+//task 13
+bool isNonDescendingSorted(int *a, int n) {
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] < a[i + 1])
+            return false;
+    }
+
+    return true;
+}
+
+bool hasAllNonDescendingRows(matrix m) {
+    for (int row = 0; row < m.nRows; row++) {
+        if (isNonDescendingSorted(m.values[row], m.nCols))
+            return false;
+    }
+
+    return true;
+}
+
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
+    int amount = 0;
+
+    for (int matrix = 0; matrix < nMatrix; matrix++){
+        if(hasAllNonDescendingRows(ms[matrix]))
+            amount++;
+    }
+
+    return amount;
+}

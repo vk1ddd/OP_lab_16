@@ -428,9 +428,11 @@ void swapPenultimateRow_test1() {
 }
 
 void swapPenultimateRow_test2() {
-    matrix m = createMatrixFromArray((int[]) {1, 2, 3}, 1, 3);
+    matrix m = createMatrixFromArray((int[]) {1, 2,
+                                              3, 4}, 2, 2);
 
-    matrix check = createMatrixFromArray((int[]) {1, 2, 3}, 1, 3);
+    matrix check = createMatrixFromArray((int[]) {1, 3,
+                                                  3, 4}, 2, 2);
 
     swapPenultimateRow(m);
 
