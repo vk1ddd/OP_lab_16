@@ -76,4 +76,8 @@ int  countNUnique(long  long  *a,  int  n);
 //возвращает количество уникальных сумм строк матрицы m
 int  countEqClassesByRowsSum(matrix  m);
 
+//task 11
+//возвращает кол-во элементов столбцов, которые больше суммы остальных элементов
+int  getNSpecialElement(matrix  m);
+
 #endif //LAB_16_LAB_TASKS_H

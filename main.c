@@ -381,6 +381,36 @@ void countEqClassesByRowsSum_test(){
     countEqClassesByRowsSum_test2();
 }
 
+void getNSpecialElement_test1(){
+    matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
+                                              2, 3, 6, 7,
+                                              12, 2, 1, 2}, 3, 4);
+
+
+    int result = getNSpecialElement(m);
+
+    assert(result == 2);
+
+    freeMemMatrix(&m);
+}
+
+void getNSpecialElement_test2(){
+    matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
+                                                 2, 3, 6, 2,
+                                                 3, 2, 1, 2}, 3, 4);
+
+    int result = getNSpecialElement(m);
+
+    assert(result == 0);
+
+    freeMemMatrix(&m);
+}
+
+void getNSpecialElement_test(){
+    getNSpecialElement_test1();
+    getNSpecialElement_test2();
+}
+
 void test() {
     swap_max_min_row_element_test();
     sortRowsByMinElement_test();
@@ -392,6 +422,7 @@ void test() {
     getMinInArea_test();
     sortByDistances_test();
     countEqClassesByRowsSum_test();
+    getNSpecialElement_test();
 }
 
 int main() {
