@@ -428,3 +428,47 @@ int getNSpecialElement2(matrix m) {
 
     return nSpecial;
 }
+
+//task 17
+double getScalarProduct(int *a, int *b, int n){
+    double result = 0.0;
+
+    for (int i = 0; i < n; i++)
+        result += (double) a[i] * b[i];
+
+    return result;
+}
+
+double getVectorLength(int *a, int n){
+    double sum = getScalarProduct(a, a, n);
+
+    double length = sqrt(sum);
+
+    return length;
+}
+
+double getCosine(int *a, int *b, int n){
+    double scalar_product = getScalarProduct(a, b, n);
+
+    double mul_length = getVectorLength(a, n) * getVectorLength(b, n);
+
+    double cosine = scalar_product / mul_length;
+
+    return cosine;
+}
+
+int getVectorIndexWithMaxAngle(matrix m, int *b){
+    double max_cosine = getCosine(m.values[0], b, m.nCols);
+    int max_angle = 0;
+
+    for (int i = 1; i < m.nRows; i++) {
+        double cosine = getCosine(m.values[i], b, m.nCols);
+
+        if (cosine < max_cosine) {
+            max_cosine = cosine;
+            max_angle = i;
+        }
+    }
+
+    return max_angle;
+}

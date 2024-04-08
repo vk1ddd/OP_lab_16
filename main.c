@@ -476,6 +476,68 @@ void countZeroRows_test() {
     countZeroRows_test2();
 }
 
+void getNSpecialElement2_test1(){
+    matrix m = createMatrixFromArray((int[]) {2, 3, 5, 5, 4,
+                                              6, 2, 3, 8, 12,
+                                              12, 12, 2, 1, 2}, 3, 5);
+
+    int check = getNSpecialElement2(m);
+
+    assert(check == 4);
+
+    freeMemMatrix(&m);
+}
+
+void getNSpecialElement2_test2(){
+    matrix m = createMatrixFromArray((int[]) {6, 3, 5, 5, 4,
+                                              6, 2, 3, 8, 4,
+                                              12, 12, 2, 1, 2}, 3, 5);
+
+    int check = getNSpecialElement2(m);
+
+    assert(check == 0);
+
+    freeMemMatrix(&m);
+}
+
+void getNSpecialElement2_test(){
+    getNSpecialElement2_test1();
+    getNSpecialElement2_test2();
+}
+
+void getVectorIndexWithMaxAngle_test1(){
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                                 4, 3, 3,
+                                                 1, 3, 5}, 3, 3);
+
+    int b[3] = {3, 1, 2};
+
+    int result = getVectorIndexWithMaxAngle(m, b);
+
+    assert(result == 2);
+
+    freeMemMatrix(&m);
+}
+
+void getVectorIndexWithMaxAngle_test2(){
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              1, 2, 3,
+                                              1, 2, 3}, 3, 3);
+
+    int b[3] = {3, 1, 2};
+
+    int result = getVectorIndexWithMaxAngle(m, b);
+
+    assert(result == 0);
+
+    freeMemMatrix(&m);
+}
+
+void getVectorIndexWithMaxAngle_test(){
+    getVectorIndexWithMaxAngle_test1();
+    getVectorIndexWithMaxAngle_test2();
+}
+
 void test() {
     swap_max_min_row_element_test();
     sortRowsByMinElement_test();
@@ -490,6 +552,8 @@ void test() {
     getNSpecialElement_test();
     swapPenultimateRow_test();
     countZeroRows_test();
+    getNSpecialElement2_test();
+    getVectorIndexWithMaxAngle_test();
 }
 
 int main() {

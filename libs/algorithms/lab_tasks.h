@@ -99,13 +99,13 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
 
 //task 14
 //возвращает кол-во эл. value в массива a размером n
-int  countValues(const  int  *a,  int  n,  int  value);
+int countValues(const int *a, int n, int value);
 
 //считает нулевые строки
-int  countZeroRows(matrix  m);
+int countZeroRows(matrix m);
 
 //выводит матрицы с максимальным кол-ом нулевых строк
-void  printMatrixWithMaxZeroRows(matrix  *ms,  int  nMatrix);
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
 //task 15
 //возвращает максимальный по модулю элемент матрицы
@@ -120,5 +120,18 @@ int min2(int a, int b);
 
 //выводит кол-во особых эл. (если слева от числа все числа меньше или справа от числа все числа больше)
 int getNSpecialElement2(matrix m);
+
+//task 17
+// возвращает скалярное произведение массива a размера n на массив b размера n
+double getScalarProduct(int *a, int *b, int n);
+
+// возвращает длину вектора a размера n
+double getVectorLength(int *a, int n);
+
+// возвращает косинус между вектором a размера n и вектором b размера n
+double getCosine(int *a, int *b, int n);
+
+// возвращает индекс строки матрицы m, которая образует максимальный угол с данным вектором b
+int getVectorIndexWithMaxAngle(matrix m, int *b);
 
 #endif //LAB_16_LAB_TASKS_H
