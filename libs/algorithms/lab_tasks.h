@@ -107,4 +107,11 @@ int  countZeroRows(matrix  m);
 //выводит матрицы с максимальным кол-ом нулевых строк
 void  printMatrixWithMaxZeroRows(matrix  *ms,  int  nMatrix);
 
+//task 15
+//возвращает максимальный по модулю элемент матрицы
+int get_max_abs_value(matrix m);
+
+//выводит матрицу у которой максимальный эл. по модулю меньше чем у остальных
+void print_matrix_min_standart(int *ms, int nMatrix);
+
 #endif //LAB_16_LAB_TASKS_H

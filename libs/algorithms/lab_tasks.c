@@ -366,3 +366,33 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
         if (amount_zero[i] == max_zero_rows)
             outputMatrix(*(ms + i));
 }
+
+//tasl 15
+int get_max_abs_value(matrix m){
+    int max_num = abs(m.values[0][0]);
+
+    for (int row = 0; row < m.nRows; row++){
+        for (int col = 0; col < m.nCols; col++){
+            if(abs(m.values[row][col]) > max_num)
+                max_num = abs(m.values[row][col]);
+        }
+    }
+
+    return max_num;
+}
+
+void print_matrix_min_standard(matrix *ms, int nMatrix){
+    int array[nMatrix];
+    int min_standard = get_max_abs_value(ms[0]);
+
+    for (int matrix = 0; matrix < nMatrix; matrix++){
+        array[matrix] = get_max_abs_value(ms[matrix]);
+        if (array[matrix] < min_standard)
+            min_standard = array[matrix];
+    }
+
+    for (int matrix = 0; matrix < nMatrix; matrix++) {
+        if (array[matrix] == min_standard)
+            outputMatrix(ms[matrix]);
+    }
+}
