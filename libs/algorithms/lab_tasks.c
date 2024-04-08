@@ -368,12 +368,12 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
 }
 
 //tasl 15
-int get_max_abs_value(matrix m){
+int get_max_abs_value(matrix m) {
     int max_num = abs(m.values[0][0]);
 
-    for (int row = 0; row < m.nRows; row++){
-        for (int col = 0; col < m.nCols; col++){
-            if(abs(m.values[row][col]) > max_num)
+    for (int row = 0; row < m.nRows; row++) {
+        for (int col = 0; col < m.nCols; col++) {
+            if (abs(m.values[row][col]) > max_num)
                 max_num = abs(m.values[row][col]);
         }
     }
@@ -381,11 +381,11 @@ int get_max_abs_value(matrix m){
     return max_num;
 }
 
-void print_matrix_min_standard(matrix *ms, int nMatrix){
+void print_matrix_min_standard(matrix *ms, int nMatrix) {
     int array[nMatrix];
     int min_standard = get_max_abs_value(ms[0]);
 
-    for (int matrix = 0; matrix < nMatrix; matrix++){
+    for (int matrix = 0; matrix < nMatrix; matrix++) {
         array[matrix] = get_max_abs_value(ms[matrix]);
         if (array[matrix] < min_standard)
             min_standard = array[matrix];
@@ -395,4 +395,36 @@ void print_matrix_min_standard(matrix *ms, int nMatrix){
         if (array[matrix] == min_standard)
             outputMatrix(ms[matrix]);
     }
+}
+
+//task 16
+int min2(int a, int b) {
+    return (a < b ? a : b);
+}
+
+int getNSpecialElement2(matrix m) {
+    int nSpecial = 0;
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            int isSpecial = 1;
+            for (int k = 0; k < j; k++) {
+                if (m.values[i][k] >= m.values[i][j]) {
+                    isSpecial = 0;
+                    break;
+                }
+            }
+            for (int k = j + 1; k < m.nCols; k++) {
+                if (m.values[i][k] <= m.values[i][j]) {
+                    isSpecial = 0;
+                    break;
+                }
+            }
+            if (isSpecial) {
+                nSpecial++;
+            }
+        }
+    }
+
+    return nSpecial;
 }

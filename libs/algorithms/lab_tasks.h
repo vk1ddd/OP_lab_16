@@ -114,4 +114,11 @@ int get_max_abs_value(matrix m);
 //выводит матрицу у которой максимальный эл. по модулю меньше чем у остальных
 void print_matrix_min_standart(int *ms, int nMatrix);
 
+//task 16
+//возвращает меньший из двух элементов
+int min2(int a, int b);
+
+//выводит кол-во особых эл. (если слева от числа все числа меньше или справа от числа все числа больше)
+int getNSpecialElement2(matrix m);
+
 #endif //LAB_16_LAB_TASKS_H
