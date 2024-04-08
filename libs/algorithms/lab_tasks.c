@@ -223,7 +223,7 @@ int cmp_long_long(const void *pa, const void *pb) {
 int countNUnique(long long *a, int n) {
     int amount = 1;
 
-    for (int i = 0; i < n - 1; i++){
+    for (int i = 0; i < n - 1; i++) {
         if (a[i] != a[i + 1])
             amount++;
     }
@@ -245,7 +245,7 @@ int countEqClassesByRowsSum(matrix m) {
 }
 
 //task 11
-int  getNSpecialElement(matrix  m){
+int getNSpecialElement(matrix m) {
     int array[m.nRows];
     int max_num;
     int sum;
@@ -255,7 +255,7 @@ int  getNSpecialElement(matrix  m){
             array[row] = m.values[row][col];
         }
         max_num = getMax(array, m.nRows);
-        sum = (int)getSum(array, m.nRows);
+        sum = (int) getSum(array, m.nRows);
         sum -= max_num;
         if (max_num > sum)
             amount++;

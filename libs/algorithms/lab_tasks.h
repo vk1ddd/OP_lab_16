@@ -68,16 +68,16 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
 void sortByDistances(matrix m);
 
 //task 10
-int  cmp_long_long(const  void  *pa,  const  void  *pb);
+int cmp_long_long(const void *pa, const void *pb);
 
 //возвращает количество уникальных элементов массива a размера n
-int  countNUnique(long  long  *a,  int  n);
+int countNUnique(long long *a, int n);
 
 //возвращает количество уникальных сумм строк матрицы m
-int  countEqClassesByRowsSum(matrix  m);
+int countEqClassesByRowsSum(matrix m);
 
 //task 11
 //возвращает кол-во элементов столбцов, которые больше суммы остальных элементов
-int  getNSpecialElement(matrix  m);
+int getNSpecialElement(matrix m);
 
 #endif //LAB_16_LAB_TASKS_H

@@ -318,7 +318,7 @@ void getMinInArea_test() {
     getMinInArea_test3();
 }
 
-void sortByDistances_test1(){
+void sortByDistances_test1() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3,
                                               4, 5, 6,
                                               -1, 0, 1}, 3, 3);
@@ -330,7 +330,7 @@ void sortByDistances_test1(){
     freeMemMatrix(&m);
 }
 
-void sortByDistances_test2(){
+void sortByDistances_test2() {
     matrix m = createMatrixFromArray((int[]) {2, 1, -3, 4,
                                               0, 3, 1, -2,
                                               -1, 2, 2, 0}, 3, 4);
@@ -342,12 +342,12 @@ void sortByDistances_test2(){
     freeMemMatrix(&m);
 }
 
-void sortByDistances_test(){
+void sortByDistances_test() {
     sortByDistances_test1();
     sortByDistances_test2();
 }
 
-void countEqClassesByRowsSum_test1(){
+void countEqClassesByRowsSum_test1() {
     matrix m = createMatrixFromArray((int[]) {7, 1,
                                               2, 7,
                                               5, 4,
@@ -362,11 +362,11 @@ void countEqClassesByRowsSum_test1(){
     freeMemMatrix(&m);
 }
 
-void countEqClassesByRowsSum_test2(){
+void countEqClassesByRowsSum_test2() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3,
-                                                 1, 3, 2,
-                                                 2, 1, 3,
-                                                 2, 3, 1}, 4, 3);
+                                              1, 3, 2,
+                                              2, 1, 3,
+                                              2, 3, 1}, 4, 3);
 
 
     int result = countEqClassesByRowsSum(m);
@@ -376,12 +376,12 @@ void countEqClassesByRowsSum_test2(){
     freeMemMatrix(&m);
 }
 
-void countEqClassesByRowsSum_test(){
+void countEqClassesByRowsSum_test() {
     countEqClassesByRowsSum_test1();
     countEqClassesByRowsSum_test2();
 }
 
-void getNSpecialElement_test1(){
+void getNSpecialElement_test1() {
     matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
                                               2, 3, 6, 7,
                                               12, 2, 1, 2}, 3, 4);
@@ -394,10 +394,10 @@ void getNSpecialElement_test1(){
     freeMemMatrix(&m);
 }
 
-void getNSpecialElement_test2(){
+void getNSpecialElement_test2() {
     matrix m = createMatrixFromArray((int[]) {3, 5, 5, 4,
-                                                 2, 3, 6, 2,
-                                                 3, 2, 1, 2}, 3, 4);
+                                              2, 3, 6, 2,
+                                              3, 2, 1, 2}, 3, 4);
 
     int result = getNSpecialElement(m);
 
@@ -406,7 +406,7 @@ void getNSpecialElement_test2(){
     freeMemMatrix(&m);
 }
 
-void getNSpecialElement_test(){
+void getNSpecialElement_test() {
     getNSpecialElement_test1();
     getNSpecialElement_test2();
 }
