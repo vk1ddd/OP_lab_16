@@ -80,4 +80,11 @@ int countEqClassesByRowsSum(matrix m);
 //возвращает кол-во элементов столбцов, которые больше суммы остальных элементов
 int getNSpecialElement(matrix m);
 
+//task 12
+//возвращает позицию первого столбца с минимальным элементом
+position getLeftMin(matrix m);
+
+//заменяет предпоследную строчку матрицы на первый столбец с минимальным элементом
+void swapPenultimateRow(matrix m);
+
 #endif //LAB_16_LAB_TASKS_H

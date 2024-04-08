@@ -411,6 +411,40 @@ void getNSpecialElement_test() {
     getNSpecialElement_test2();
 }
 
+void swapPenultimateRow_test1() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              4, 5, 6,
+                                              7, 8, 1}, 3, 3);
+
+    matrix m1 = createMatrixFromArray((int[]) {1, 2, 3,
+                                               1, 4, 7,
+                                               7, 8, 1}, 3, 3);
+
+    swapPenultimateRow(m);
+
+    assert(areTwoMatricesEqual(&m1, &m));
+
+    freeMemMatrix(&m);
+}
+
+void swapPenultimateRow_test2() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3}, 1, 3);
+
+    matrix check = createMatrixFromArray((int[]) {1, 2, 3}, 1, 3);
+
+    swapPenultimateRow(m);
+
+    assert(areTwoMatricesEqual(&m, &check));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&check);
+}
+
+void swapPenultimateRow_test() {
+    swapPenultimateRow_test1();
+    swapPenultimateRow_test2();
+}
+
 void test() {
     swap_max_min_row_element_test();
     sortRowsByMinElement_test();
@@ -423,6 +457,7 @@ void test() {
     sortByDistances_test();
     countEqClassesByRowsSum_test();
     getNSpecialElement_test();
+    swapPenultimateRow_test();
 }
 
 int main() {
