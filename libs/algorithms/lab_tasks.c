@@ -430,7 +430,7 @@ int getNSpecialElement2(matrix m) {
 }
 
 //task 17
-double getScalarProduct(int *a, int *b, int n){
+double getScalarProduct(int *a, int *b, int n) {
     double result = 0.0;
 
     for (int i = 0; i < n; i++)
@@ -439,7 +439,7 @@ double getScalarProduct(int *a, int *b, int n){
     return result;
 }
 
-double getVectorLength(int *a, int n){
+double getVectorLength(int *a, int n) {
     double sum = getScalarProduct(a, a, n);
 
     double length = sqrt(sum);
@@ -447,7 +447,7 @@ double getVectorLength(int *a, int n){
     return length;
 }
 
-double getCosine(int *a, int *b, int n){
+double getCosine(int *a, int *b, int n) {
     double scalar_product = getScalarProduct(a, b, n);
 
     double mul_length = getVectorLength(a, n) * getVectorLength(b, n);
@@ -457,7 +457,7 @@ double getCosine(int *a, int *b, int n){
     return cosine;
 }
 
-int getVectorIndexWithMaxAngle(matrix m, int *b){
+int getVectorIndexWithMaxAngle(matrix m, int *b) {
     double max_cosine = getCosine(m.values[0], b, m.nCols);
     int max_angle = 0;
 
@@ -471,4 +471,23 @@ int getVectorIndexWithMaxAngle(matrix m, int *b){
     }
 
     return max_angle;
+}
+
+//task 18
+long long getScalarProductRowAndCol(matrix m, int i, int j) {
+    long long int result = 0;
+
+    for (int k = 0; k < m.nRows; k++)
+        result += m.values[i][k] * m.values[k][j];
+
+    return result;
+}
+
+long long getSpecialScalarProduct(matrix m) {
+    position max = getMaxValuePos(m);
+    position min = getMinValuePos(m);
+
+    long long int result = getScalarProductRowAndCol(m, max.rowIndex, min.colIndex);
+
+    return result;
 }

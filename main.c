@@ -476,7 +476,7 @@ void countZeroRows_test() {
     countZeroRows_test2();
 }
 
-void getNSpecialElement2_test1(){
+void getNSpecialElement2_test1() {
     matrix m = createMatrixFromArray((int[]) {2, 3, 5, 5, 4,
                                               6, 2, 3, 8, 12,
                                               12, 12, 2, 1, 2}, 3, 5);
@@ -488,7 +488,7 @@ void getNSpecialElement2_test1(){
     freeMemMatrix(&m);
 }
 
-void getNSpecialElement2_test2(){
+void getNSpecialElement2_test2() {
     matrix m = createMatrixFromArray((int[]) {6, 3, 5, 5, 4,
                                               6, 2, 3, 8, 4,
                                               12, 12, 2, 1, 2}, 3, 5);
@@ -500,15 +500,15 @@ void getNSpecialElement2_test2(){
     freeMemMatrix(&m);
 }
 
-void getNSpecialElement2_test(){
+void getNSpecialElement2_test() {
     getNSpecialElement2_test1();
     getNSpecialElement2_test2();
 }
 
-void getVectorIndexWithMaxAngle_test1(){
+void getVectorIndexWithMaxAngle_test1() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3,
-                                                 4, 3, 3,
-                                                 1, 3, 5}, 3, 3);
+                                              4, 3, 3,
+                                              1, 3, 5}, 3, 3);
 
     int b[3] = {3, 1, 2};
 
@@ -519,7 +519,7 @@ void getVectorIndexWithMaxAngle_test1(){
     freeMemMatrix(&m);
 }
 
-void getVectorIndexWithMaxAngle_test2(){
+void getVectorIndexWithMaxAngle_test2() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3,
                                               1, 2, 3,
                                               1, 2, 3}, 3, 3);
@@ -533,9 +533,40 @@ void getVectorIndexWithMaxAngle_test2(){
     freeMemMatrix(&m);
 }
 
-void getVectorIndexWithMaxAngle_test(){
+void getVectorIndexWithMaxAngle_test() {
     getVectorIndexWithMaxAngle_test1();
     getVectorIndexWithMaxAngle_test2();
+}
+
+void getSpecialScalarProduct_test1() {
+    matrix m = createMatrixFromArray((int[]) {4, 2, 3,
+                                              3, 1, 2,
+                                              2, 2, 3}, 3, 3);
+
+    long long int result = getSpecialScalarProduct(m);
+
+    assert(result == 16);
+
+    freeMemMatrix(&m);
+}
+
+
+void getSpecialScalarProduct_test2() {
+    matrix m = createMatrixFromArray((int[]) {4, 1, 3,
+                                              3, 2, 2,
+                                              2, 2, 3}, 3, 3);
+
+    long long int result = getSpecialScalarProduct(m);
+
+    assert(result == 12);
+
+    freeMemMatrix(&m);
+}
+
+
+void getSpecialScalarProduct_test() {
+    getSpecialScalarProduct_test1();
+    getSpecialScalarProduct_test2();
 }
 
 void test() {
@@ -554,6 +585,7 @@ void test() {
     countZeroRows_test();
     getNSpecialElement2_test();
     getVectorIndexWithMaxAngle_test();
+    getSpecialScalarProduct_test();
 }
 
 int main() {

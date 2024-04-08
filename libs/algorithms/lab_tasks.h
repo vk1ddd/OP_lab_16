@@ -134,4 +134,11 @@ double getCosine(int *a, int *b, int n);
 // возвращает индекс строки матрицы m, которая образует максимальный угол с данным вектором b
 int getVectorIndexWithMaxAngle(matrix m, int *b);
 
+//task 18
+// возвращает скалярное произведение строки на столбец
+long long getScalarProductRowAndCol(matrix m, int i, int j);
+
+// возвращает скалярное произведение строки c наибольшим наибольшим элементом, на столбец с минимальным элементом
+long long getSpecialScalarProduct(matrix m);
+
 #endif //LAB_16_LAB_TASKS_H
